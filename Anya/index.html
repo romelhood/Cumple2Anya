@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cumple 2 de Anya Sofía 🧸</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,650;9..144,750&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#FBF7F2;
+      --ink:#1F1A16;
+      --muted:#6B5F57;
+      --card:#FFFFFF;
+      --line:rgba(31,26,22,.10);
+      --shadow:0 18px 60px rgba(20,16,13,.10);
+      --radius:22px;
+
+      --rose:#F6C2CF;
+      --mint:#CFEDE2;
+      --sky:#CFE2FF;
+      --sand:#F2E7DD;
+
+      --wa1:#25D366;
+      --wa2:rgba(37,211,102,.75);
+
+      --serif:"Fraunces", ui-serif, Georgia, serif;
+      --sans:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--ink);
+      background:
+        radial-gradient(900px 520px at 15% 12%, rgba(246,194,207,.55), transparent 62%),
+        radial-gradient(900px 520px at 86% 18%, rgba(207,226,255,.55), transparent 62%),
+        radial-gradient(900px 640px at 50% 95%, rgba(207,237,226,.55), transparent 62%),
+        linear-gradient(180deg, var(--bg), #fff);
+      min-height:100vh;
+      padding:22px 14px 38px;
+    }
+
+    .wrap{ max-width:980px; margin:0 auto; }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border-radius: calc(var(--radius) + 10px);
+      box-shadow: var(--shadow);
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+    }
+
+    .heroInner{
+      padding:26px 18px 18px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:16px;
+      align-items:stretch;
+    }
+
+    @media (max-width: 860px){
+      .heroInner{ grid-template-columns:1fr; }
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.85);
+      color: var(--muted);
+      font-weight:700;
+      width: fit-content;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: var(--rose);
+      box-shadow: 0 0 0 6px rgba(246,194,207,.25);
+    }
+
+    h1{
+      font-family:var(--serif);
+      margin:14px 0 8px;
+      font-size: clamp(2.1rem, 4.2vw, 3.25rem);
+      letter-spacing:-.02em;
+      line-height:1.02;
+    }
+
+    .subtitle{
+      margin:0;
+      color: var(--muted);
+      font-size:1.05rem;
+      line-height:1.55;
+      max-width: 56ch;
+    }
+
+    .pillRow{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .pill{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.75);
+      color: var(--muted);
+      font-weight:700;
+      font-size:.95rem;
+    }
+    .pill b{ color: var(--ink); }
+
+    .side{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.85);
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .sideTitle{
+      font-family:var(--serif);
+      font-size:1.25rem;
+      margin:0 0 10px;
+    }
+
+    .countChip{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 12px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(242,231,221,.45);
+      font-weight:800;
+      color: var(--muted);
+    }
+    .countChip span{
+      color: var(--ink);
+      font-weight:900;
+    }
+
+    .teddyMark{
+      position:absolute;
+      right:-40px;
+      bottom:-40px;
+      width:220px;
+      height:220px;
+      opacity:.12;
+      color:#2b231e;
+      pointer-events:none;
+    }
+
+    .divider{
+      height:1px;
+      background: rgba(31,26,22,.08);
+      margin: 0 18px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      padding: 0 18px 18px;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns:1fr; }
+    }
+
+    .card{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.90);
+      padding:18px;
+    }
+
+    .card h2{
+      font-family:var(--serif);
+      font-size:1.35rem;
+      margin:0 0 12px;
+      letter-spacing:-.01em;
+    }
+
+    .row{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background: rgba(255,255,255,.78);
+      margin-top:10px;
+    }
+
+    .ico{
+      width:38px;height:38px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(31,26,22,.10);
+      background: linear-gradient(135deg, rgba(246,194,207,.55), rgba(207,237,226,.40));
+      flex: 0 0 auto;
+      font-size:18px;
+    }
+
+    .meta{ line-height:1.35; }
+    .label{ font-weight:900; margin-bottom:2px; }
+    .value{ color:var(--muted); font-weight:650; }
+
+    .addrLine{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .chipLink{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 10px;
+      border-radius:999px;
+      border:1px solid rgba(31,26,22,.12);
+      background: rgba(207,226,255,.35);
+      color:#1a2c4c;
+      font-weight:900;
+      text-decoration:none;
+      transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
+      white-space:nowrap;
+    }
+    .chipLink:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(20,16,13,.10);
+      filter: saturate(1.02);
+    }
+    .chipLink:active{ transform: translateY(0px) scale(.99); }
+
+    .note{
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius:18px;
+      border:1px dashed rgba(31,26,22,.18);
+      background: rgba(207,237,226,.32);
+      color: rgba(31,26,22,.78);
+      font-weight:800;
+    }
+
+    .btnRow{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .btn{
+      appearance:none;
+      border:none;
+      border-radius:18px;
+      padding:14px 14px;
+      font-family:var(--sans);
+      font-size:1rem;
+      font-weight:900;
+      cursor:pointer;
+      text-decoration:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      box-shadow: 0 12px 28px rgba(20,16,13,.12);
+      position:relative;
+      overflow:hidden;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .btn::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      transform: translateX(-120%) skewX(-20deg);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+      transition: transform .75s ease;
+      pointer-events:none;
+    }
+    .btn:hover{ transform: translateY(-2px); box-shadow: 0 18px 36px rgba(20,16,13,.16); }
+    .btn:hover::after{ transform: translateX(120%) skewX(-20deg); }
+    .btn:active{ transform: translateY(0px) scale(.99); }
+
+    .btnWa{
+      background: linear-gradient(135deg, var(--wa1), var(--wa2));
+      color:#0B2B14;
+    }
+
+    /* GAME */
+    .gameCard{
+      margin: 0 18px 18px;
+      padding:18px;
+    }
+    .gameHeader{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:baseline;
+      justify-content:space-between;
+      margin-bottom:12px;
+    }
+    .gameHeader h2{ margin:0; }
+    .hud{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .hudChip{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      border-radius:999px;
+      padding:10px 12px;
+      font-weight:900;
+      color: var(--muted);
+    }
+    .hudChip b{ color: var(--ink); }
+
+    .canvasWrap{
+      border:1px solid var(--line);
+      border-radius: 18px;
+      overflow:hidden;
+      background: linear-gradient(180deg, rgba(207,226,255,.28), rgba(246,194,207,.18));
+      position:relative;
+    }
+    canvas{ display:block; width:100%; height:auto; }
+    .gameActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .btnSoft{
+      background: linear-gradient(135deg, rgba(246,194,207,.85), rgba(207,237,226,.55));
+      color:#2a2420;
+    }
+    .btnGhost{
+      background: rgba(255,255,255,.75);
+      border:1px solid var(--line);
+      color: var(--ink);
+      box-shadow:none;
+    }
+
+    footer{
+      text-align:center;
+      padding:14px 18px 18px;
+      color: rgba(31,26,22,.62);
+      font-weight:700;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <section class="hero" aria-label="Invitación">
+
+      <div class="heroInner">
+        <div>
+          <div class="tag"><span class="dot"></span> Invitación</div>
+
+          <h1>Cumple 2 de Anya Sofía 🧸</h1>
+          <p class="subtitle">Te invitamos a celebrar con nosotros un día muy especial.</p>
+
+          <div class="pillRow" aria-label="Resumen">
+            <div class="pill">📅 <b>21 Feb 2026</b></div>
+            <div class="pill">🕐 <b>1:00 pm</b></div>
+          </div>
+        </div>
+
+        <aside class="side" aria-label="Cuenta regresiva">
+          <svg class="teddyMark" viewBox="0 0 512 512" aria-hidden="true">
+            <path fill="currentColor" d="M256 160c-72 0-130 58-130 130s58 130 130 130 130-58 130-130-58-130-130-130zm-120-60c22 0 40 18 40 40s-18 40-40 40-40-18-40-40 18-40 40-40zm240 0c22 0 40 18 40 40s-18 40-40 40-40-18-40-40 18-40 40-40z"/>
+          </svg>
+
+          <h3 class="sideTitle">Faltan</h3>
+          <div class="countChip">⏳ <span id="daysLeft">—</span> días</div>
+        </aside>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="grid">
+        <!-- DETALLES -->
+        <div class="card" aria-label="Detalles">
+          <h2>Detalles</h2>
+
+          <div class="row">
+            <div class="ico">📅</div>
+            <div class="meta">
+              <div class="label">Fecha</div>
+              <div class="value">Sábado 21 de febrero de 2026</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="ico">🕐</div>
+            <div class="meta">
+              <div class="label">Hora</div>
+              <div class="value">1:00 pm</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="ico">📍</div>
+            <div class="meta">
+              <div class="label">Dirección</div>
+              <div class="value">
+                <div class="addrLine">
+                  <span>“Residencial Diligencias” Prolongación 5 de Mayo #40 Casa 18, San Pedro Mártir, Tlalpan</span>
+                  <a class="chipLink" href="https://maps.app.goo.gl/DMSZ7EwkoQYT4Nep7" target="_blank" rel="noopener">
+                    🗺️ Abrir en Maps
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="note">👙 Traer traje de baño (puede cambiar)</div>
+        </div>
+
+        <!-- CONFIRMACIÓN -->
+        <div class="card" aria-label="Confirmación">
+          <h2>Confirmación</h2>
+
+          <div class="row">
+            <div class="ico">📩</div>
+            <div class="meta">
+              <div class="label">Te pedimos confirmar asistencia usando el siguiente link</div>
+              <div class="value"></div>
+            </div>
+          </div>
+
+          <div class="btnRow">
+            <a class="btn btnWa"
+               href="https://wa.me/5215513440269?text=Hola%2C%20soy%20____.%20Confirmo%3A%20__%20adultos%20y%20__%20ni%C3%B1os.%20"
+               target="_blank" rel="noopener">
+              ¿Voy, o no voy?
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- GAME -->
+      <div class="card gameCard" aria-label="Juego">
+        <div class="gameHeader">
+          <h2>Abrazo de Ositos</h2>
+          <div class="hud" aria-label="Marcador">
+            <div class="hudChip">🧸 Abrazos: <b id="score">0</b></div>
+            <div class="hudChip">⭐ Racha: <b id="streak">0</b></div>
+          </div>
+        </div>
+
+        <div class="canvasWrap">
+          <canvas id="game" width="900" height="520" aria-label="Juego de atrapar ositos"></canvas>
+        </div>
+
+        <div class="gameActions">
+          <button class="btn btnSoft" id="startBtn" type="button">Iniciar</button>
+          <button class="btn btnGhost" id="resetBtn" type="button">Reiniciar</button>
+        </div>
+      </div>
+
+      <footer>
+        Hecho con 🧸 para Anya Sofía — Eli y Carlos
+      </footer>
+    </section>
+  </div>
+
+  <script>
+    // Días restantes hacia 2026-02-21
+    (function(){
+      const eventDate = new Date(2026, 1, 21);
+      const now = new Date();
+      const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const end = new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate());
+      const diffMs = end - start;
+      const days = Math.max(0, Math.round(diffMs / (1000*60*60*24)));
+      document.getElementById("daysLeft").textContent = String(days);
+    })();
+
+    // ====== Mini juego: "Abrazo de Ositos" ======
+    (function(){
+      const canvas = document.getElementById("game");
+      const ctx = canvas.getContext("2d");
+
+      const scoreEl = document.getElementById("score");
+      const streakEl = document.getElementById("streak");
+      const startBtn = document.getElementById("startBtn");
+      const resetBtn = document.getElementById("resetBtn");
+
+      const DPR = Math.min(2, window.devicePixelRatio || 1);
+      function resizeCanvas(){
+        const rect = canvas.getBoundingClientRect();
+        const cssW = Math.max(320, rect.width);
+        const cssH = Math.max(380, Math.round(cssW * 0.58));
+        canvas.style.height = cssH + "px";
+        canvas.width = Math.floor(cssW * DPR);
+        canvas.height = Math.floor(cssH * DPR);
+        ctx.setTransform(DPR,0,0,DPR,0,0);
+      }
+      // Deja que el layout se pinte antes de medir
+      setTimeout(resizeCanvas, 0);
+      window.addEventListener("resize", resizeCanvas);
+
+      const state = {
+        running:false,
+        score:0,
+        streak:0,
+        bears:[],
+        lastSpawn:0,
+        spawnEvery: 650, // ms
+        speed: 1.2,
+        t:0
+      };
+
+      const girl = {
+        x: 0, y: 0,
+        w: 96, h: 110,
+        targetX: 0,
+      };
+
+      function reset(){
+        state.running=false;
+        state.score=0;
+        state.streak=0;
+        state.bears.length=0;
+        state.lastSpawn=0;
+        state.speed=1.2;
+        scoreEl.textContent = "0";
+        streakEl.textContent = "0";
+        placeGirlCenter();
+        drawFrame(0);
+      }
+
+      function placeGirlCenter(){
+        const w = canvas.getBoundingClientRect().width;
+        const h = canvas.getBoundingClientRect().height;
+        girl.w = Math.max(78, Math.min(110, w * 0.16));
+        girl.h = girl.w * 1.12;
+        girl.x = (w - girl.w)/2;
+        girl.y = h - girl.h - 16;
+        girl.targetX = girl.x;
+      }
+
+      function rand(min,max){ return Math.random()*(max-min)+min; }
+
+      function spawnBear(){
+        const w = canvas.getBoundingClientRect().width;
+        const size = Math.max(26, Math.min(44, w * 0.055));
+        state.bears.push({
+          x: rand(12, w - size - 12),
+          y: -size - 10,
+          s: size,
+          vy: rand(1.2, 2.4) + (state.speed * 0.35),
+          wob: rand(0.8, 1.4),
+          phase: rand(0, Math.PI*2),
+          hugged:false
+        });
+      }
+
+      function hit(b){
+        // hitbox suave: que "abrace" al tocar
+        const gx = girl.x, gy = girl.y, gw = girl.w, gh = girl.h;
+        const bx = b.x, by = b.y, bs = b.s;
+        const pad = 10;
+        return (bx + bs - pad > gx && bx + pad < gx + gw && by + bs - pad > gy && by + pad < gy + gh);
+      }
+
+      function drawBackground(w,h){
+        // cielo suave
+        const grd = ctx.createLinearGradient(0,0,0,h);
+        grd.addColorStop(0, "rgba(207,226,255,.45)");
+        grd.addColorStop(1, "rgba(246,194,207,.20)");
+        ctx.fillStyle = grd;
+        ctx.fillRect(0,0,w,h);
+
+        // “nubes” minimalistas
+        ctx.globalAlpha = 0.35;
+        for(let i=0;i<5;i++){
+          const cx = (w/5)*i + (w*0.08);
+          const cy = 40 + i*8;
+          blob(cx, cy, 62, 22);
+        }
+        ctx.globalAlpha = 1;
+
+        // suelo pastel
+        ctx.fillStyle = "rgba(207,237,226,.45)";
+        ctx.fillRect(0, h-90, w, 90);
+
+        // sombras suaves
+        ctx.fillStyle = "rgba(31,26,22,.05)";
+        ctx.fillRect(0, h-90, w, 1);
+      }
+
+      function blob(x,y,rx,ry){
+        ctx.beginPath();
+        ctx.ellipse(x, y, rx, ry, 0, 0, Math.PI*2);
+        ctx.fillStyle = "rgba(255,255,255,1)";
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(x+rx*0.55, y+ry*0.25, rx*0.65, ry*0.85, 0, 0, Math.PI*2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(x-rx*0.55, y+ry*0.25, rx*0.55, ry*0.75, 0, 0, Math.PI*2);
+        ctx.fill();
+      }
+
+      function drawGirl(){
+        // Diseño “icono” (sin imágenes): niña abrazando (cuerpo + brazos en forma de abrazo)
+        const w = girl.w, h = girl.h;
+        const x = girl.x, y = girl.y;
+
+        // sombra
+        ctx.fillStyle = "rgba(31,26,22,.12)";
+        roundRect(x + w*0.12, y + h*0.88, w*0.76, h*0.10, 18, true, false);
+
+        // vestido
+        ctx.fillStyle = "rgba(246,194,207,.95)";
+        roundRect(x + w*0.22, y + h*0.50, w*0.56, h*0.44, 24, true, false);
+
+        // cuello
+        ctx.fillStyle = "rgba(242,231,221,.85)";
+        roundRect(x + w*0.44, y + h*0.47, w*0.12, h*0.06, 12, true, false);
+
+        // cabeza
+        ctx.fillStyle = "rgba(242,231,221,.95)";
+        ctx.beginPath();
+        ctx.ellipse(x + w*0.5, y + h*0.28, w*0.22, h*0.20, 0, 0, Math.PI*2);
+        ctx.fill();
+
+        // cabello
+        ctx.fillStyle = "rgba(31,26,22,.18)";
+        ctx.beginPath();
+        ctx.ellipse(x + w*0.5, y + h*0.22, w*0.24, h*0.18, 0, Math.PI, Math.PI*2);
+        ctx.fill();
+
+        // moñito
+        ctx.fillStyle = "rgba(207,226,255,.9)";
+        roundRect(x + w*0.58, y + h*0.12, w*0.18, h*0.10, 10, true, false);
+        roundRect(x + w*0.66, y + h*0.12, w*0.18, h*0.10, 10, true, false);
+
+        // brazos (abrazo)
+        ctx.fillStyle = "rgba(242,231,221,.95)";
+        roundRect(x + w*0.12, y + h*0.60, w*0.28, h*0.14, 14, true, false);
+        roundRect(x + w*0.60, y + h*0.60, w*0.28, h*0.14, 14, true, false);
+
+        // manos “cerrando”
+        ctx.fillStyle = "rgba(242,231,221,.98)";
+        ctx.beginPath();
+        ctx.ellipse(x + w*0.38, y + h*0.67, w*0.06, h*0.05, 0, 0, Math.PI*2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(x + w*0.62, y + h*0.67, w*0.06, h*0.05, 0, 0, Math.PI*2);
+        ctx.fill();
+      }
+
+      function drawBear(b){
+        const x=b.x, y=b.y, s=b.s;
+
+        // osito estilo “sticker” minimal
+        const face = "rgba(242,231,221,.95)";
+        const ear = "rgba(242,231,221,.92)";
+        const line = "rgba(31,26,22,.12)";
+        const blush = "rgba(246,194,207,.55)";
+
+        // sombra
+        ctx.fillStyle = "rgba(31,26,22,.10)";
+        ctx.beginPath();
+        ctx.ellipse(x + s*0.50, y + s*0.86, s*0.36, s*0.14, 0, 0, Math.PI*2);
+        ctx.fill();
+
+        // orejas
+        ctx.fillStyle = ear;
+        ctx.strokeStyle = line;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.ellipse(x + s*0.24, y + s*0.24, s*0.18, s*0.16, 0, 0, Math.PI*2);
+        ctx.fill(); ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(x + s*0.76, y + s*0.24, s*0.18, s*0.16, 0, 0, Math.PI*2);
+        ctx.fill(); ctx.stroke();
+
+        // cara
+        ctx.fillStyle = face;
+        ctx.beginPath();
+        ctx.ellipse(x + s*0.50, y + s*0.52, s*0.40, s*0.36, 0, 0, Math.PI*2);
+        ctx.fill();
+        ctx.stroke();
+
+        // cachetes
+        ctx.fillStyle = blush;
+        ctx.beginPath();
+        ctx.ellipse(x + s*0.34, y + s*0.60, s*0.09, s*0.06, 0, 0, Math.PI*2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(x + s*0.66, y + s*0.60, s*0.09, s*0.06, 0, 0, Math.PI*2);
+        ctx.fill();
+
+        // ojos
+        ctx.fillStyle = "rgba(31,26,22,.55)";
+        ctx.beginPath();
+        ctx.ellipse(x + s*0.40, y + s*0.50, s*0.035, s*0.05, 0, 0, Math.PI*2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(x + s*0.60, y + s*0.50, s*0.035, s*0.05, 0, 0, Math.PI*2);
+        ctx.fill();
+
+        // nariz/hocico
+        ctx.fillStyle = "rgba(242,231,221,.82)";
+        ctx.beginPath();
+        ctx.ellipse(x + s*0.50, y + s*0.60, s*0.16, s*0.12, 0, 0, Math.PI*2);
+        ctx.fill();
+        ctx.strokeStyle = line;
+        ctx.stroke();
+
+        ctx.fillStyle = "rgba(31,26,22,.55)";
+        ctx.beginPath();
+        ctx.ellipse(x + s*0.50, y + s*0.58, s*0.04, s*0.03, 0, 0, Math.PI*2);
+        ctx.fill();
+      }
+
+      function roundRect(x, y, w, h, r, fill, stroke) {
+        if (w < 0) { x += w; w = -w; }
+        if (h < 0) { y += h; h = -h; }
+        r = Math.min(r, w / 2, h / 2);
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+        if (fill) ctx.fill();
+        if (stroke) ctx.stroke();
+      }
+
+      function update(dt){
+        const w = canvas.getBoundingClientRect().width;
+        const h = canvas.getBoundingClientRect().height;
+
+        // suavizado de movimiento hacia targetX
+        girl.x += (girl.targetX - girl.x) * Math.min(1, dt * 0.012);
+
+        // limitar
+        girl.x = Math.max(8, Math.min(w - girl.w - 8, girl.x));
+        girl.targetX = Math.max(8, Math.min(w - girl.w - 8, girl.targetX));
+
+        // spawn
+        state.lastSpawn += dt;
+        if(state.lastSpawn >= state.spawnEvery){
+          state.lastSpawn = 0;
+          spawnBear();
+          // leve dificultad progresiva
+          state.speed = Math.min(4.2, state.speed + 0.03);
+          state.spawnEvery = Math.max(380, state.spawnEvery - 2);
+        }
+
+        // update bears
+        for(const b of state.bears){
+          b.phase += dt * 0.004;
+          b.x += Math.sin(b.phase) * b.wob * 0.25;
+          b.y += b.vy * (dt * 0.06);
+        }
+
+        // collision + cleanup
+        const still = [];
+        let missed = 0;
+
+        for(const b of state.bears){
+          if(!b.hugged && hit(b)){
+            b.hugged = true;
+            state.score += 1;
+            state.streak += 1;
+            scoreEl.textContent = String(state.score);
+            streakEl.textContent = String(state.streak);
+            continue;
+          }
+
+          if(b.y > h + 60){
+            missed += 1;
+            continue;
+          }
+          still.push(b);
+        }
+
+        if(missed > 0){
+          state.streak = 0;
+          streakEl.textContent = "0";
+        }
+
+        state.bears = still;
+      }
+
+      function drawFrame(ts){
+        const w = canvas.getBoundingClientRect().width;
+        const h = canvas.getBoundingClientRect().height;
+
+        ctx.clearRect(0,0,w,h);
+        drawBackground(w,h);
+
+        // ositos
+        for(const b of state.bears){
+          drawBear(b);
+        }
+
+        // niña
+        drawGirl();
+
+        // texto discreto dentro del canvas
+        ctx.fillStyle = "rgba(31,26,22,.55)";
+        ctx.font = "700 14px Inter, system-ui, sans-serif";
+        ctx.fillText("Mueve a la niña y atrapa ositos para abrazarlos", 14, 24);
+      }
+
+      let lastTs = 0;
+      function loop(ts){
+        if(!state.running){ drawFrame(ts); return; }
+        const dt = Math.min(40, ts - lastTs || 16);
+        lastTs = ts;
+        update(dt);
+        drawFrame(ts);
+        requestAnimationFrame(loop);
+      }
+
+      // Controls
+      function setTargetFromClientX(clientX){
+        const rect = canvas.getBoundingClientRect();
+        const x = clientX - rect.left;
+        girl.targetX = x - girl.w/2;
+      }
+
+      // Mouse
+      canvas.addEventListener("mousemove", (e)=> setTargetFromClientX(e.clientX));
+      // Touch
+      canvas.addEventListener("touchstart", (e)=>{
+        if(e.touches && e.touches[0]) setTargetFromClientX(e.touches[0].clientX);
+      }, {passive:true});
+      canvas.addEventListener("touchmove", (e)=>{
+        if(e.touches && e.touches[0]) setTargetFromClientX(e.touches[0].clientX);
+      }, {passive:true});
+
+      // Keyboard
+      window.addEventListener("keydown", (e)=>{
+        if(!state.running) return;
+        const step = 28;
+        if(e.key === "ArrowLeft") girl.targetX -= step;
+        if(e.key === "ArrowRight") girl.targetX += step;
+      });
+
+      startBtn.addEventListener("click", ()=>{
+        if(!state.running){
+          state.running = true;
+          lastTs = 0;
+          requestAnimationFrame(loop);
+        }
+      });
+
+      resetBtn.addEventListener("click", ()=>{
+        reset();
+      });
+
+      // Init
+      placeGirlCenter();
+      reset();
+      requestAnimationFrame(loop);
+    })();
+  </script>
+</body>
+</html>
