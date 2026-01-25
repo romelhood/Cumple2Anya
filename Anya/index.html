@@ -13,275 +13,264 @@
 
 
   <style>
-    :root{
-      --bg:#FFFCF7;
-      --ink:#201A16;
-      --muted:#6F625B;
+  :root{
+    --bg:#FFFCF7;
+    --ink:#201A16;
+    --muted:#6F625B;
 
-      --gold:#C9A35E;
-      --goldSoft: rgba(201,163,94,.35);
+    --gold:#C9A35E;
+    --goldSoft: rgba(201,163,94,.35);
 
-      --rose: rgba(245,196,205,.42);
-      --sky:  rgba(209,228,255,.42);
-      --mint: rgba(207,241,228,.38);
+    --rose: rgba(245,196,205,.42);
+    --sky:  rgba(209,228,255,.42);
+    --mint: rgba(207,241,228,.38);
 
-       --title-font:"Lucida Handwriting", "Apple Chancery", "Snell Roundhand", "Zapfino", "Brush Script MT", cursive;
-       --serif: "Playfair Display", "Cormorant Garamond", serif; /* para el cuento */
+    /* Title font (system) */
+    --title-font:"Lucida Handwriting","Apple Chancery","Snell Roundhand","Zapfino","Brush Script MT",cursive;
 
+    /* Story font */
+    --serif:"Playfair Display","Cormorant Garamond",serif;
 
-      --sans:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
+    /* Base font */
+    --sans:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--sans);
-      overflow-x:hidden;
-    }
+    /* Highlight colors */
+    --hotpink:#FF3399;
+    --mintText:#9ECFB6;
+  }
 
-    /* Soft pastel glow */
-    .bg{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:-2;
-      background:
-        radial-gradient(900px 520px at 18% 12%, var(--rose), transparent 62%),
-        radial-gradient(900px 520px at 86% 14%, var(--sky),  transparent 62%),
-        radial-gradient(1000px 620px at 50% 92%, var(--mint), transparent 62%),
-        linear-gradient(180deg, #FFFCF7, #FFFFFF);
-    }
+  *{ box-sizing:border-box; }
 
-    /* Gold star sprinkle (subtle) */
-    .stars{
-      position:fixed;
-      inset:-40px;
-      z-index:-1;
-      pointer-events:none;
-      opacity:.55;
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280' viewBox='0 0 280 280'%3E%3Crect width='280' height='280' fill='transparent'/%3E%3Cg fill='none' stroke='%23C9A35E' stroke-width='2' stroke-linejoin='round' opacity='0.75'%3E%3Cpath d='M44 48l6 12 13 2-9 9 2 13-12-6-12 6 2-13-9-9 13-2z'/%3E%3Cpath d='M216 74l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z' opacity='0.6'/%3E%3Cpath d='M88 212l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z' opacity='0.5'/%3E%3Cpath d='M222 218l6 12 13 2-9 9 2 13-12-6-12 6 2-13-9-9 13-2z' opacity='0.38'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: 280px 280px;
-      background-repeat: repeat;
-    }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    overflow-x:hidden;
+  }
 
-    .wrap{
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 44px 18px 48px;
-      position:relative;
-    }
+  .bg{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+    background:
+      radial-gradient(900px 520px at 18% 12%, var(--rose), transparent 62%),
+      radial-gradient(900px 520px at 86% 14%, var(--sky),  transparent 62%),
+      radial-gradient(1000px 620px at 50% 92%, var(--mint), transparent 62%),
+      linear-gradient(180deg, #FFFCF7, #FFFFFF);
+  }
 
-    /* Invitation “page” without borders */
-    .page{
-      position:relative;
-      padding: 18px 6px 10px;
-      /* espacio para que el osito no tape los links */
-      padding-bottom: 210px;
-    }
-    @media (max-width: 560px){
-      .page{ padding-bottom: 230px; }
-    }
-
-    header{ text-align:center; }
-
-    .kicker{
-      font-size: .78rem;
-      letter-spacing:.18em;
-      text-transform: uppercase;
-      color: rgba(32,26,22,.55);
-      font-weight: 600;
-      margin:0 0 12px;
-    }
-
-    h1{
-      font-family: var(--title-font);
-      font-size: clamp(4.4rem, 6vw, 3.6rem);
-      font-weight: 400;
-      line-height: 1.05;
-      letter-spacing: .02em;
-}
-
-
-    .story{
-      font-size: 1.07rem;
-      line-height: 1.78;
-      color: rgba(32,26,22,.70);
-      max-width: 64ch;
-      margin: 0;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .story b{
-      color: #FF3399; /* verde menta suave */
-      font-weight: 700;
-    }
-
-    .divider{
-      height:1px;
-      background: rgba(32,26,22,.10);
-      margin: 26px 0 18px;
-    }
-
-    /* Bottom: only two words */
-    .links{
-      display:flex;
-      gap: 46px;
-      align-items:center;
-      justify-content:center;
-      padding: 10px 0 6px;
-      position:relative;
-      z-index:3;
-      margin-top: 18px;
-    }
-    .link-bear{
-      font-size:1.4rem;
-      transform: translateY(2px);
-    }
-    .links a{
-      display:inline-flex;
-      align-items:center;
-
-       /* 4) osito más pegado al link */
-      gap: 8px;
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      text-decoration:none;
-      color: #FF3399;
-      border-bottom: 2px solid var(--goldSoft);
-      padding-bottom: 4px;
-      transition: transform .16s ease, border-color .16s ease;
-    }
-    .links a:hover{
-      transform: translateY(-1px);
-      border-color: rgba(201,163,94,.70);
-    }
-    .miniBear{
-     /* 2) osito más pequeño */
-      font-size: 1.05rem;
-
-     /* alineación óptica */
-     transform: translateY(2px);
-    }
-
-    footer{
-      text-align:center;
-      margin-top: 18px;
-      color: rgba(32,26,22,.52);
-      font-weight: 600;
-      font-size: .95rem;
-      position:relative;
-      z-index:3;
-    }
-
-    /* YOUR BEAR (bottom-left) + subtle movement */
-    .bear{
-      position:absolute;
-      left: -18px;
-      bottom: -24px;
-      width: min(320px, 54vw);
-      height:auto;
-      transform-origin: 50% 70%;
-      animation: bearFloat 5.2s ease-in-out infinite;
-      filter: drop-shadow(0 16px 24px rgba(32,26,22,.12));
-      user-select:none;
-      pointer-events:none;
-      z-index:1;
-    }
-    @keyframes bearFloat{
-      0%   { transform: translateY(0px) rotate(-0.8deg); }
-      50%  { transform: translateY(6px) rotate(0.9deg); }
-      100% { transform: translateY(0px) rotate(-0.8deg); }
-    }
-    @media (max-width: 560px){
-      .bear{
-        left: -26px;
-        bottom: -14px;
-        width: min(300px, 70vw);
-      }
-    }
-
-    /* small “paper” feel on text (very subtle) */
-    .page::before{
-      content:"";
-      position:absolute;
-      inset:-12px -8px -18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.35);
-      box-shadow: 0 24px 70px rgba(32,26,22,.06);
-      z-index:-1;
-    }
-    /* === FIX MOBILE === */
-@media (max-width: 520px){
+  .stars{
+    position:fixed;
+    inset:-40px;
+    z-index:-1;
+    pointer-events:none;
+    opacity:.55;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280' viewBox='0 0 280 280'%3E%3Crect width='280' height='280' fill='transparent'/%3E%3Cg fill='none' stroke='%23C9A35E' stroke-width='2' stroke-linejoin='round' opacity='0.75'%3E%3Cpath d='M44 48l6 12 13 2-9 9 2 13-12-6-12 6 2-13-9-9 13-2z'/%3E%3Cpath d='M216 74l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z' opacity='0.6'/%3E%3Cpath d='M88 212l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z' opacity='0.5'/%3E%3Cpath d='M222 218l6 12 13 2-9 9 2 13-12-6-12 6 2-13-9-9 13-2z' opacity='0.38'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 280px 280px;
+    background-repeat: repeat;
+  }
 
   .wrap{
-    padding: 28px 16px 36px;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 44px 18px 48px;
+    position:relative;
   }
 
   .page{
-    /* más espacio abajo para que el osito no invada los links */
-    padding-bottom: 260px;
+    position:relative;
+    padding: 18px 6px 10px;
+    padding-bottom: 210px;
+  }
+  @media (max-width: 560px){
+    .page{ padding-bottom: 230px; }
+  }
+
+  header{ text-align:center; }
+
+  .kicker{
+    font-size: .78rem;
+    letter-spacing:.18em;
+    text-transform: uppercase;
+    color: rgba(32,26,22,.55);
+    font-weight: 600;
+    margin:0 0 12px;
   }
 
   h1{
-    /* título más controlado */
-    font-size: 3.0rem;       /* prueba 2.7–3.2 */
-    line-height: 1.0;
+    font-family: var(--title-font);
+    font-size: clamp(2.8rem, 6vw, 4.4rem);
+    font-weight: 400;
+    line-height: 1.05;
     letter-spacing: .02em;
-    margin-bottom: 12px;
+    margin: 0 0 14px;
   }
 
   .story{
-    font-size: 1.02rem;
-    line-height: 1.7;
-    max-width: 32ch;         /* esto hace que se vea como “cuento” */
-    margin-left: auto;
-    margin-right: auto;
+    font-family: var(--serif);
+    font-size: 1.07rem;
+    line-height: 1.78;
+    color: rgba(32,26,22,.70);
+    max-width: 64ch;
+    margin: 0 auto;
+    text-align: center;
   }
 
-  /* si estás usando muchos <br>, esto reduce la sensación de “saltos” */
-  .story br + br{
-    content:"";
-    display:block;
-    margin-top: 10px;
+  /* ✅ Highlights (control por clase) */
+  .story b{ font-weight: 700; }
+  .story b.rosa{ color: var(--hotpink); }
+  .story b.menta{ color: var(--mintText); }
+
+  /* ✅ “Había una vez” (negro, sin negrita, énfasis sutil) */
+  .story b.normal{
+    color: inherit;
+    font-weight: 400;
+    letter-spacing: .02em;
+  }
+
+  .divider{
+    height:1px;
+    background: rgba(32,26,22,.10);
+    margin: 26px 0 18px;
   }
 
   .links{
-    /* 1) bajar un poco la sección de links */
-    margin-top: 22px;
-
-    /* 5) más separación entre links */
-    gap: 58px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 46px;
+    padding: 10px 0 6px;
+    position:relative;
+    z-index:3;
+    margin-top: 18px;
   }
 
   .linkItem{
-    /* 4) osito más pegado al link */
+    display:inline-flex;
+    align-items:center;
     gap: 6px;
-    font-size: 1.18rem;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    text-decoration:none;
+    color: var(--hotpink);
+    border-bottom: 2px solid var(--goldSoft);
+    padding-bottom: 4px;
+    transition: transform .16s ease, border-color .16s ease;
+  }
+  .linkItem:hover{
+    transform: translateY(-1px);
+    border-color: rgba(201,163,94,.70);
   }
 
   .miniBear{
-    /* 2) osito ícono más pequeño */
     font-size: 0.95rem;
-    transform: translateY(1px);
+    transform: translateY(2px);
+  }
+
+  footer{
+    text-align:center;
+    margin-top: 18px;
+    color: rgba(32,26,22,.52);
+    font-weight: 600;
+    font-size: .95rem;
+    position:relative;
+    z-index:3;
   }
 
   .bear{
-    /* 1) baja el oso grande para que no “pise” los links */
-    bottom: -34px;
-
-    /* reduce un poquito el tamaño en móvil */
-    width: min(280px, 72vw);
-
-    /* opcional: hazlo un pelín más transparente para editorial */
-    opacity: 0.95;
+    position:absolute;
+    left: -18px;
+    bottom: -24px;
+    width: min(320px, 54vw);
+    height:auto;
+    transform-origin: 50% 70%;
+    animation: bearFloat 5.2s ease-in-out infinite;
+    filter: drop-shadow(0 16px 24px rgba(32,26,22,.12));
+    user-select:none;
+    pointer-events:none;
+    z-index:1;
   }
-}
+  @keyframes bearFloat{
+    0%   { transform: translateY(0px) rotate(-0.8deg); }
+    50%  { transform: translateY(6px) rotate(0.9deg); }
+    100% { transform: translateY(0px) rotate(-0.8deg); }
+  }
+  @media (max-width: 560px){
+    .bear{
+      left: -26px;
+      bottom: -14px;
+      width: min(300px, 70vw);
+    }
+  }
 
-  </style>
+  .page::before{
+    content:"";
+    position:absolute;
+    inset:-12px -8px -18px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.35);
+    box-shadow: 0 24px 70px rgba(32,26,22,.06);
+    z-index:-1;
+  }
+
+  @media (max-width: 520px){
+    .wrap{ padding: 28px 16px 36px; }
+
+    .page{ padding-bottom: 260px; }
+
+    h1{
+      font-size: 3.0rem;
+      line-height: 1.0;
+      letter-spacing: .02em;
+      margin-bottom: 12px;
+    }
+
+    .story{
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 32ch;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    /* ✅ en móvil: menos aire en “Había una vez” */
+    .story b.normal{
+      letter-spacing: .01em;
+    }
+
+    .story br + br{
+      content:"";
+      display:block;
+      margin-top: 10px;
+    }
+
+    .links{
+      margin-top: 22px;
+      gap: 58px;
+    }
+
+    .linkItem{
+      gap: 6px;
+      font-size: 1.18rem;
+    }
+
+    .miniBear{
+      font-size: 0.9rem;
+      transform: translateY(1px);
+    }
+
+    .bear{
+      bottom: -34px;
+      width: min(280px, 72vw);
+      opacity: 0.95;
+    }
+  }
+</style>
+
+
 </head>
 
 <body>
@@ -297,11 +286,11 @@
 
         <!-- Storytelling corto (sin iconos) -->
        <p class="story">
-  <b class="rosa">Había una vez</b> una niña llamada <b class="rosa">Anya Sofía</b>, y un cuento que está por comenzar.
+  <b class="normal">Había una vez</b> una niña llamada <b class="rosa">Anya Sofía</b>, y un cuento que está por comenzar.
 </p>
 
 <p class="story" style="margin-top:12px;">
-  El día del cuento será el <b class="menta">21 de febrero de 2026</b>, cuando el reloj marque la <b class="menta">una de la tarde</b> y todos lleguen a <b class="menta">Residencial Diligencias</b> para celebrar.
+  El día del cuento será el <b class="rosa">21 de febrero de 2026</b>, cuando el reloj marque las <b class="rosa">12pm</b> y todos lleguen a <b class="rosa">Residencial Diligencias</b> atentos para celebrar.
 </p>
 
 <p class="story" style="margin-top:12px;">
