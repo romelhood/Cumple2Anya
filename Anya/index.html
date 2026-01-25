@@ -214,6 +214,73 @@
       box-shadow: 0 24px 70px rgba(32,26,22,.06);
       z-index:-1;
     }
+    /* === FIX MOBILE === */
+@media (max-width: 520px){
+
+  .wrap{
+    padding: 28px 16px 36px;
+  }
+
+  .page{
+    /* más espacio abajo para que el osito no invada los links */
+    padding-bottom: 260px;
+  }
+
+  h1{
+    /* título más controlado */
+    font-size: 3.0rem;       /* prueba 2.7–3.2 */
+    line-height: 1.0;
+    letter-spacing: .02em;
+    margin-bottom: 12px;
+  }
+
+  .story{
+    font-size: 1.02rem;
+    line-height: 1.7;
+    max-width: 32ch;         /* esto hace que se vea como “cuento” */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* si estás usando muchos <br>, esto reduce la sensación de “saltos” */
+  .story br + br{
+    content:"";
+    display:block;
+    margin-top: 10px;
+  }
+
+  .links{
+    /* 1) bajar un poco la sección de links */
+    margin-top: 22px;
+
+    /* 5) más separación entre links */
+    gap: 58px;
+  }
+
+  .linkItem{
+    /* 4) osito más pegado al link */
+    gap: 6px;
+    font-size: 1.18rem;
+  }
+
+  .miniBear{
+    /* 2) osito ícono más pequeño */
+    font-size: 0.95rem;
+    transform: translateY(1px);
+  }
+
+  .bear{
+    /* 1) baja el oso grande para que no “pise” los links */
+    bottom: -34px;
+
+    /* reduce un poquito el tamaño en móvil */
+    width: min(280px, 72vw);
+
+    /* opcional: hazlo un pelín más transparente para editorial */
+    opacity: 0.95;
+  }
+}
+
   </style>
 </head>
 
@@ -229,18 +296,18 @@
         <h1>¡Anya Sofía cumple 2!</h1>
 
         <!-- Storytelling corto (sin iconos) -->
-        <p class="story">
-          <b>Había una vez</b> una niña llamada <b>Anya Sofía</b>,<br>
-  y un cuento que estaba por comenzar.<br><br>
+       <p class="story">
+  <b class="rosa">Había una vez</b> una niña llamada <b class="rosa">Anya Sofía</b>, y un cuento que está por comenzar.
+</p>
 
-  El día del cuento será el <b>21 de febrero de 2026</b>,<br>
-  cuando el reloj marque la <b>una de la tarde</b><br>
-  y todos lleguen a <b>Residencial Diligencias</b><br>
-  para celebrar que Anya cumplirá <b>dos años</b>.<br><br>
+<p class="story" style="margin-top:12px;">
+  El día del cuento será el <b class="menta">21 de febrero de 2026</b>, cuando el reloj marque la <b class="menta">una de la tarde</b> y todos lleguen a <b class="menta">Residencial Diligencias</b> para celebrar.
+</p>
 
-  Ese cuento tendrá risas,<br>
-  abrazos y mucha diversión.<br>
-        </p>
+<p class="story" style="margin-top:12px;">
+  Ese cuento tendrá risas, abrazos y mucha diversión.
+</p>
+
 
        <!--<div class="divider"></div>-->
       </header>
